@@ -60,6 +60,8 @@ export const MuiConfigRegistry = (props: MuiConfigRegistryProps) => {
 
   themeMaterial.components = componentsOverrides(themeMaterial);
 
+  console.log("themeMaterial", themeMaterial);
+
   return (
     <CacheProvider value={cache}>
       <ThemeProvider theme={themeMaterial}>

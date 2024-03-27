@@ -7,7 +7,7 @@ import breakpoints from './breakpoints.style';
 import shadows from './shadows.style';
 
 export const themeMaterial = createTheme({
-  palette: palette('light'),
+  palette: palette('dark'),
   shadows: shadows(),
   breakpoints: breakpoints(),
   typography,

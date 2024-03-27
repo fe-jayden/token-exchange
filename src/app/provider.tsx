@@ -4,8 +4,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 export default function RootProvider({ children }: { children: React.ReactNode }) {
   return (
-    <body className={inter.className}>
-      <MuiConfigRegistry options={{ key: 'mui' }}>{children}</MuiConfigRegistry>
-    </body>
+    <MuiConfigRegistry options={{ key: 'mui' }}>
+        <body className={inter.className}>{children}</body>
+    </MuiConfigRegistry>
   );
 }
