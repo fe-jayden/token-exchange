@@ -1,11 +1,10 @@
 import { MuiConfigRegistry } from '../libs/config';
-import { Inter } from 'next/font/google';
+import RootClientComponent from './client';
 
-const inter = Inter({ subsets: ['latin'] });
 export default function RootProvider({ children }: { children: React.ReactNode }) {
   return (
     <MuiConfigRegistry options={{ key: 'mui' }}>
-        <body className={inter.className}>{children}</body>
+      <RootClientComponent>{children}</RootClientComponent>
     </MuiConfigRegistry>
   );
 }
