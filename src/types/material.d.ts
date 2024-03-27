@@ -23,7 +23,8 @@ interface IBasePalette extends Palette {
   warning: IBasePaletteColor;
   info: IBasePaletteColor;
   success: IBasePaletteColor;
-  augmentColor: () => IBasePaletteColor;
+  // eslint-disable-next-line no-undef
+  augmentColor: (options: PaletteAugmentColorOptions) => IBasePaletteColor;
 }
 
 interface IBaseBreakpoints extends Breakpoints {}
