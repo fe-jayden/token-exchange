@@ -2,7 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ComponentHomeClient = () => {
-  return <div>sdsdsd</div>;
+  return (
+    <div
+      style={{
+        color: 'blue',
+      }}
+    >
+      page home
+    </div>
+  );
 };
 
 ComponentHomeClient.propTypes = {};
