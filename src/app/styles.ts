@@ -1,6 +1,10 @@
-import { styled } from 'styled-components';
+import { styled } from '@mui/material';
 
-export const SWrapper = styled.div`
-  max-width: 1175px;
-  margin: 0 auto;
-`;
+export const SWrapper = styled(
+  'div',
+  {}
+)(() => ({
+ maxWidth:'1180px',
+ position:'relative',
+ margin:'auto',
+}));
