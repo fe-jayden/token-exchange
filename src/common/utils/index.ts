@@ -6,3 +6,4 @@ export * from './string.util';
 export * from './styles.util';
 export * from './time.util';
 export * from './array.util';
+export * from './metamask.util';

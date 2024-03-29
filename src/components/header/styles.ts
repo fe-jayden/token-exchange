@@ -35,13 +35,15 @@ export const SHeaderAction = styled(
   alignItems: 'center',
   columnGap: '24px',
 }));
-export const SHeaderWallet = styled(
-  Button,
+export const SButtonHeaderWallet = styled(
+  'button',
   {}
 )(({ theme }) => ({
   borderRadius: '50px',
-
-  color: '#FFFFFF',
+  cursor: 'pointer',
+  padding: '8px',
+  border: 'none',
+  color: 'black',
   display: 'flex',
   alignItems: 'center',
   columnGap: '24px',
