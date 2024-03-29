@@ -5,6 +5,9 @@ export class StringUtils {
   static compactAdd(add: string): string {
     const first = add?.substring(0, 4);
     const end = add?.substring(add?.length - 4);
-    return `${first}..${end}`;
+    if (first && end) {
+      return `${first || ''}..${end || ''}`;
+    }
+    return 'Connect Wallet';
   }
 }
