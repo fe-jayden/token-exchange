@@ -14,7 +14,7 @@ const Header = () => {
         <span>Airdrop</span>
       </S.SHeaderIcon>
       <S.SHeaderAction>
-        {typeof window?.ethereum?.isMetaMask && wallet.accounts.length < 1 ? (
+        {typeof window !== 'undefined' && window?.ethereum?.isMetaMask && wallet.accounts.length < 1 ? (
           <S.SButtonHeaderWallet disabled={isConnecting} onClick={connectMetaMask}>
             Connect Wallet
           </S.SButtonHeaderWallet>
