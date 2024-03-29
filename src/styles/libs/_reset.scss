@@ -8,7 +8,20 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  
+}
+#effectMouse {
+  position: fixed;
+  top: -5px;
+  left: -22px;
+  background-image: url('/images/spaceship.png');
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+
+  transform: translateX(0) translateY(0) scale(0);
+  transition: transform 0.2s;
+  z-index: 999999999;
+  pointer-events: none;
 }
 
 main {

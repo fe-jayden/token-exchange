@@ -90,6 +90,8 @@ export const MetaMaskContextProvider = ({ children }: PropsWithChildren) => {
       const accounts = await window.ethereum.request({
         method: 'eth_requestAccounts',
       });
+      console.log('accounts', accounts);
+
       clearError();
       updateWallet(accounts);
     } catch (err: any) {
