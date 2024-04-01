@@ -5,7 +5,7 @@ import { StringUtils } from '@common/utils';
 import { Menu, MenuItem } from '@mui/material';
 
 const Header = () => {
-  const { wallet, isConnecting, connectMetaMask, disconnectWallet } = useMetaMask();
+  const { wallet, isConnecting, hasProvider, connectMetaMask, disconnectWallet } = useMetaMask();
   const [openMenuWallet, setOpenMenuWallet] = useState<boolean>(false);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   return (
@@ -17,11 +17,17 @@ const Header = () => {
       </S.SHeaderIcon>
       <div>
         <S.SHeaderAction>
-          {typeof window !== 'undefined' && window?.ethereum?.isMetaMask && wallet?.accounts.length < 1 ? (
+          {!hasProvider && (
+            <S.SButtonInstallMetamask href='https://metamask.io' target='_blank'>
+              Install MetaMask
+            </S.SButtonInstallMetamask>
+          )}
+          {window?.ethereum?.isMetaMask && wallet?.accounts.length < 1 && (
             <S.SButtonHeaderWallet disabled={isConnecting} onClick={connectMetaMask}>
               Connect Wallet
             </S.SButtonHeaderWallet>
-          ) : (
+          )}
+          {hasProvider && wallet.accounts.length > 0 && (
             <S.SButtonHeaderWallet
               disabled={isConnecting}
               onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
@@ -32,16 +38,19 @@ const Header = () => {
               {StringUtils.compactAdd(wallet?.accounts[0])}
             </S.SButtonHeaderWallet>
           )}
-          {!(
-            typeof window !== 'undefined' &&
-            window?.ethereum?.isMetaMask &&
-            wallet?.accounts.length < 1
-          ) && (
+          {hasProvider && wallet.accounts.length > 0 && (
             <Menu open={openMenuWallet} anchorEl={anchorEl} onClose={() => setOpenMenuWallet(false)}>
               <MenuItem onClick={() => navigator.clipboard.writeText(wallet?.accounts[0])}>
                 Copy address
               </MenuItem>
-              <MenuItem onClick={disconnectWallet}>Disconnect</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  setOpenMenuWallet(false);
+                  disconnectWallet();
+                }}
+              >
+                Disconnect
+              </MenuItem>
             </Menu>
           )}
         </S.SHeaderAction>

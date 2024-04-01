@@ -1,4 +1,5 @@
 import { Button, styled } from '@mui/material';
+import Link from 'next/link';
 
 export const SHeader = styled(
   'div',
@@ -47,4 +48,21 @@ export const SButtonHeaderWallet = styled(
   display: 'flex',
   alignItems: 'center',
   columnGap: '24px',
+}));
+
+export const SButtonInstallMetamask = styled(
+  Link,
+  {}
+)(({ theme }) => ({
+  borderRadius: '50px',
+  cursor: 'pointer',
+  padding: '8px',
+  border: 'none',
+  backgroundColor: 'white',
+  color: 'black',
+  display: 'flex',
+  alignItems: 'center',
+  columnGap: '24px',
+  fontWeight: 400,
+  fontSize: '100%',
 }));

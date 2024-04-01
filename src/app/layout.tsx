@@ -14,7 +14,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         const bottomStar = Math.floor(Math.random() * (container?.clientWidth || 0));
         const sizeStar = Math.floor(Math.random() * 50);
         const timeStar = Math.floor(Math.random() * 5 + 1);
-        console.log(timeStar);
 
         let div = document.createElement('div');
 
