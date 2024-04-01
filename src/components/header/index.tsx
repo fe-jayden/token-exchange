@@ -22,7 +22,7 @@ const Header = () => {
               Install MetaMask
             </S.SButtonInstallMetamask>
           )}
-          {window !== undefined && window?.ethereum?.isMetaMask && wallet?.accounts.length < 1 && (
+          {typeof window !== 'undefined' && window?.ethereum?.isMetaMask && wallet?.accounts.length < 1 && (
             <S.SButtonHeaderWallet disabled={isConnecting} onClick={connectMetaMask}>
               Connect Wallet
             </S.SButtonHeaderWallet>
